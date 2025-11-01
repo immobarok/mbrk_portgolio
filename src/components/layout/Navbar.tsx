@@ -1,5 +1,3 @@
-import { ArrowRight } from "lucide-react";
-import { Button } from "../ui/button";
 import sleepingIcon from "@/assets/icons/sleeping.png";
 import { useEffect, useState } from "react";
 import { SheetMenu } from "./_components/SheetMenu";

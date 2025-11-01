@@ -38,7 +38,7 @@ export const SheetMenu = () => {
               animate={{ y: 0, opacity: 1 }}
               transition={{ delay: 0.1 }}
             >
-              <SheetTitle>MBRK</SheetTitle>
+              <SheetTitle className="text-2xl font-bold">MBRK</SheetTitle>
             </motion.div>
             <motion.div
               initial={{ y: -10, opacity: 0 }}
@@ -46,32 +46,35 @@ export const SheetMenu = () => {
               transition={{ delay: 0.15 }}
             >
               <SheetDescription>
-                Navigate the site: about, skills, projects, and blog.
+                Explore MBRK — a showcase of innovation, technical expertise,
+                and creative vision. Discover more about our journey,
+                capabilities, featured projects, and insights.
               </SheetDescription>
             </motion.div>
           </SheetHeader>
 
           <nav className="flex flex-col gap-3 px-4 mt-6">
             {["About", "Skills", "Projects", "Blog", "Contact"].map(
-              (item, index) => (
-                <motion.a
-                  key={item}
-                  href={`/${item.toLowerCase()}`}
-                  className="py-3 text-lg hover:text-accent transition-colors duration-200 border-b border-border/50"
-                  initial={{ x: 20, opacity: 0 }}
-                  animate={{ x: 0, opacity: 1 }}
-                  transition={{
-                    delay: 0.2 + index * 0.1,
-                    duration: 0.3,
-                  }}
-                  whileHover={{
-                    x: 8,
-                    color: "hsl(var(--accent))",
-                  }}
-                >
-                  {item}
-                </motion.a>
-              )
+              (item, index) => {
+                const href =
+                  item === "About" ? "#about" : `/${item.toLowerCase()}`;
+                return (
+                  <motion.a
+                    key={item}
+                    href={href}
+                    className="py-3 text-xl sm:text-2xl md:text-4xl transition-colors duration-200 border-b-2 border-transparent hover:border-destructive hover:text-destructive"
+                    initial={{ x: 20, opacity: 0 }}
+                    animate={{ x: 0, opacity: 1 }}
+                    transition={{
+                      delay: 0.2 + index * 0.1,
+                      duration: 0.3,
+                    }}
+                    whileHover={{ x: 8 }}
+                  >
+                    {item}
+                  </motion.a>
+                );
+              }
             )}
           </nav>
         </motion.div>
